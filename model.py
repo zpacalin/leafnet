@@ -32,7 +32,7 @@ INPUT_SIZE = 16
 BATCH_SIZE = 23598
 NUM_CLASSES = 185
 NUM_EPOCHS = 100
-LEARNING_RATE = 1e-1
+LEARNING_RATE = 0.0001
 USE_CUDA = torch.cuda.is_available()
 best_prec1 = 0
 classes = []
@@ -42,9 +42,12 @@ parser = argparse.ArgumentParser(description='PyTorch LeafSnap Training')
 parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 args = parser.parse_args()
+##Hardcoded checkpoint
+args.resume = 'checkpoint.pth.tar'
 
 # Training method which trains model for 1 epoch
 
+# saving all relevant accuraccy and loss parameters
 
 def train(train_loader, model, criterion, optimizer, epoch):
     batch_time = AverageMeter()
@@ -187,6 +190,7 @@ model = models.resnet18(pretrained=False)
 # model = densenet121()
 model.fc = nn.Linear(512, NUM_CLASSES)
 
+
 print('\n[INFO] Model Architecture: \n{}'.format(model))
 
 criterion = nn.CrossEntropyLoss()
@@ -218,10 +222,12 @@ normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                  std=[0.229, 0.224, 0.225])
 data_train = datasets.ImageFolder(traindir, transforms.Compose([
     transforms.RandomHorizontalFlip(),
+    transforms.Grayscale(),
     transforms.ToTensor(),
     normalize]))
 data_test = datasets.ImageFolder(testdir, transforms.Compose([
-    transforms.ToTensor(),
+    transforms.Grayscale(),
+    transforms.ToTensor(),  
     normalize]))
 classes = data_train.classes
 
