@@ -32,7 +32,7 @@ BATCH_SIZE = 128
 NUM_CLASSES = 185
 <<<<<<< HEAD
 NUM_EPOCHS = 100
-LEARNING_RATE = 0.0001
+LEARNING_RATE = 0.1
 =======
 NUM_EPOCHS = 50
 LEARNING_RATE = 1e-4 #start from learning rate after 40 epochs
@@ -46,16 +46,11 @@ parser = argparse.ArgumentParser(description='PyTorch LeafSnap Training')
 parser.add_argument('--resume', required = True, type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 args = parser.parse_args()
-##Hardcoded checkpoint
-args.resume = 'checkpoint.pth.tar'
 
 # Training method which trains model for 1 epoch
-<<<<<<< HEAD
 
 # saving all relevant accuraccy and loss parameters
 
-=======
->>>>>>> gpu
 def train(train_loader, model, criterion, optimizer, epoch):
     batch_time = AverageMeter()
     data_time = AverageMeter()
@@ -287,8 +282,8 @@ data_test = datasets.ImageFolder(testdir, transforms.Compose([
 classes = data_train.classes
 classes_test = data_test.classes
 
-train_loader = torch.utils.data.DataLoader(data_train, batch_size=BATCH_SIZE, shuffle=True, num_workers=4)
-val_loader = torch.utils.data.DataLoader(data_test, batch_size=BATCH_SIZE, shuffle=False, num_workers=4) 
+train_loader = torch.utils.data.DataLoader(data_train, batch_size=BATCH_SIZE, shuffle=True, num_workers=0)
+val_loader = torch.utils.data.DataLoader(data_test, batch_size=BATCH_SIZE, shuffle=False, num_workers=0) 
 
 print('\n[INFO] Training Started')
 for epoch in range(1, NUM_EPOCHS + 1):
