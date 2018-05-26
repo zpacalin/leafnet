@@ -1,0 +1,1129 @@
+
+[Learning Rate] 0.100000
+Epoch: [1][0/1] \Time 107.433 (107.433) Data 6.458 (6.458)      Loss 5.4941 (5.4941)    Prec@1 0.542 (0.542)    Prec@5 2.945 (2.945)
+Test: [0/1]     Time 10.348 (10.348)    Loss 3314368380928.0000 (3314368380928.0000)    Prec@1 0.661 (0.661)    Prec@5 3.661 (3.661)
+ * Prec@1 0.661 Prec@5 3.661
+
+[INFO] Saved Model to model_best.pth.tar
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.100000
+Epoch: [2][0/1] \Time 104.860 (104.860) Data 6.431 (6.431)      Loss 26.2922 (26.2922)  Prec@1 1.352 (1.352)    Prec@5 5.543 (5.543)
+Test: [0/1]     Time 10.324 (10.324)    Loss 15125270495232.0000 (15125270495232.0000)  Prec@1 0.458 (0.458)    Prec@5 2.678 (2.678)
+ * Prec@1 0.458 Prec@5 2.678
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.100000
+Epoch: [3][0/1] \Time 105.007 (105.007) Data 6.393 (6.393)      Loss 21.1507 (21.1507)  Prec@1 0.542 (0.542)    Prec@5 2.699 (2.699)
+Test: [0/1]     Time 10.342 (10.342)    Loss 2611524403200.0000 (2611524403200.0000)    Prec@1 0.508 (0.508)    Prec@5 3.220 (3.220)
+ * Prec@1 0.508 Prec@5 3.220
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.100000
+Epoch: [4][0/1] \Time 107.979 (107.979) Data 6.427 (6.427)      Loss 22.8216 (22.8216)  Prec@1 0.411 (0.411)    Prec@5 2.814 (2.814)
+Test: [0/1]     Time 10.346 (10.346)    Loss 996309401600.0000 (996309401600.0000)      Prec@1 0.610 (0.610)    Prec@5 3.542 (3.542)
+ * Prec@1 0.610 Prec@5 3.542
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.100000
+Epoch: [5][0/1] \Time 105.178 (105.178) Data 6.414 (6.414)      Loss 13.1220 (13.1220)  Prec@1 0.725 (0.725)    Prec@5 3.225 (3.225)
+Test: [0/1]     Time 10.256 (10.256)    Loss 2627666432.0000 (2627666432.0000)  Prec@1 0.712 (0.712)    Prec@5 3.153 (3.153)
+ * Prec@1 0.712 Prec@5 3.153
+
+[INFO] Saved Model to model_best.pth.tar
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.010000
+Epoch: [6][0/1] \Time 104.464 (104.464) Data 6.403 (6.403)      Loss 9.9038 (9.9038)    Prec@1 0.750 (0.750)    Prec@5 3.933 (3.933)
+Test: [0/1]     Time 10.281 (10.281)    Loss 13044033.0000 (13044033.0000)      Prec@1 0.712 (0.712)    Prec@5 3.153 (3.153)
+ * Prec@1 0.712 Prec@5 3.153
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.010000
+Epoch: [7][0/1] \Time 104.915 (104.915) Data 6.406 (6.406)      Loss 9.4201 (9.4201)    Prec@1 0.670 (0.670)    Prec@5 4.022 (4.022)
+Test: [0/1]     Time 10.474 (10.474)    Loss 969405.1875 (969405.1875)  Prec@1 0.678 (0.678)    Prec@5 3.153 (3.153)
+ * Prec@1 0.678 Prec@5 3.153
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.010000
+Epoch: [8][0/1] \Time 104.663 (104.663) Data 6.304 (6.304)      Loss 8.9471 (8.9471)    Prec@1 0.788 (0.788)    Prec@5 4.038 (4.038)
+Test: [0/1]     Time 10.332 (10.332)    Loss 170427.8281 (170427.8281)  Prec@1 0.475 (0.475)    Prec@5 3.356 (3.356)
+ * Prec@1 0.475 Prec@5 3.356
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.010000
+Epoch: [9][0/1] \Time 105.291 (105.291) Data 6.310 (6.310)      Loss 8.4638 (8.4638)    Prec@1 0.746 (0.746)    Prec@5 4.170 (4.170)
+Test: [0/1]     Time 10.459 (10.459)    Loss 48739.4219 (48739.4219)    Prec@1 0.373 (0.373)    Prec@5 3.068 (3.068)
+ * Prec@1 0.373 Prec@5 3.068
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.010000
+Epoch: [10][0/1]        \Time 106.720 (106.720) Data 6.307 (6.307)      Loss 8.1600 (8.1600)    Prec@1 0.729 (0.729)    Prec@5 4.123 (4.123)
+Test: [0/1]     Time 10.351 (10.351)    Loss 19060.8965 (19060.8965)    Prec@1 0.746 (0.746)    Prec@5 2.661 (2.661)
+ * Prec@1 0.746 Prec@5 2.661
+
+[INFO] Saved Model to model_best.pth.tar
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.010000
+Epoch: [11][0/1]        \Time 105.414 (105.414) Data 6.397 (6.397)      Loss 7.8567 (7.8567)    Prec@1 0.695 (0.695)    Prec@5 3.920 (3.920)
+Test: [0/1]     Time 10.289 (10.289)    Loss 8577.0322 (8577.0322)      Prec@1 0.780 (0.780)    Prec@5 2.898 (2.898)
+ * Prec@1 0.780 Prec@5 2.898
+
+[INFO] Saved Model to model_best.pth.tar
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.001000
+Epoch: [12][0/1]        \Time 106.207 (106.207) Data 6.396 (6.396)      Loss 7.5768 (7.5768)    Prec@1 0.788 (0.788)    Prec@5 3.674 (3.674)
+Test: [0/1]     Time 10.438 (10.438)    Loss 4295.3477 (4295.3477)      Prec@1 0.763 (0.763)    Prec@5 3.017 (3.017)
+ * Prec@1 0.763 Prec@5 3.017
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.001000
+Epoch: [13][0/1]        \Time 105.756 (105.756) Data 6.407 (6.407)      Loss 7.5096 (7.5096)    Prec@1 0.750 (0.750)    Prec@5 3.661 (3.661)
+Test: [0/1]     Time 10.476 (10.476)    Loss 2400.9087 (2400.9087)      Prec@1 0.746 (0.746)    Prec@5 2.983 (2.983)
+ * Prec@1 0.746 Prec@5 2.983
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.001000
+Epoch: [14][0/1]        \Time 105.293 (105.293) Data 6.443 (6.443)      Loss 7.5230 (7.5230)    Prec@1 0.797 (0.797)    Prec@5 3.661 (3.661)
+Test: [0/1]     Time 10.417 (10.417)    Loss 1445.1064 (1445.1064)      Prec@1 0.746 (0.746)    Prec@5 3.254 (3.254)
+ * Prec@1 0.746 Prec@5 3.254
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.001000
+Epoch: [15][0/1]        \Time 104.240 (104.240) Data 6.390 (6.390)      Loss 7.4590 (7.4590)    Prec@1 0.792 (0.792)    Prec@5 3.674 (3.674)
+Test: [0/1]     Time 10.386 (10.386)    Loss 920.5449 (920.5449)        Prec@1 0.797 (0.797)    Prec@5 3.085 (3.085)
+ * Prec@1 0.797 Prec@5 3.085
+
+[INFO] Saved Model to model_best.pth.tar
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.001000
+Epoch: [16][0/1]        \Time 104.007 (104.007) Data 6.374 (6.374)      Loss 7.4150 (7.4150)    Prec@1 0.831 (0.831)    Prec@5 3.640 (3.640)
+Test: [0/1]     Time 10.226 (10.226)    Loss 611.8478 (611.8478)        Prec@1 0.661 (0.661)    Prec@5 3.034 (3.034)
+ * Prec@1 0.661 Prec@5 3.034
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.001000
+Epoch: [17][0/1]        \Time 104.170 (104.170) Data 6.382 (6.382)      Loss 7.3198 (7.3198)    Prec@1 0.797 (0.797)    Prec@5 3.644 (3.644)
+Test: [0/1]     Time 10.389 (10.389)    Loss 423.1367 (423.1367)        Prec@1 0.559 (0.559)    Prec@5 3.203 (3.203)
+ * Prec@1 0.559 Prec@5 3.203
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.000100
+Epoch: [18][0/1]        \Time 105.784 (105.784) Data 6.448 (6.448)      Loss 7.2595 (7.2595)    Prec@1 0.835 (0.835)    Prec@5 3.776 (3.776)
+Test: [0/1]     Time 10.364 (10.364)    Loss 300.8043 (300.8043)        Prec@1 0.661 (0.661)    Prec@5 3.068 (3.068)
+ * Prec@1 0.661 Prec@5 3.068
+
+[INFO] Saved Model to leafsnap_model.pth
+
+[Learning Rate] 0.000100
+Epoch: [19][0/1]        \Time 104.420 (104.420) Data 6.385 (6.385)      Loss 7.3507 (7.3507)    Prec@1 0.792 (0.792)    Prec@5 3.657 (3.657)
+Test: [0/1]     Time 10.312 (10.312)    Loss 219.5495 (219.5495)        Prec@1 0.610 (0.610)    Prec@5 3.203 (3.203)
+ * Prec@1 0.610 Prec@5 3.203
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [41][0/1]        \Time 104.821 (104.821) Data 6.375 (6.375)      Loss 3.7317 (3.7317)    Prec@1 13.137 (13.137)  Prec@5 37.753 (37.753)
+
+Test: [0/1]     Time 10.356 (10.356)    Loss 3.8366 (3.8366)    Prec@1 11.593 (11.593)  Prec@5 34.610 (34.610)
+
+ * Prec@1 11.593 Prec@5 34.610
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [42][0/1]        \Time 105.247 (105.247) Data 6.330 (6.330)      Loss 3.7293 (3.7293)    Prec@1 13.086 (13.086)  Prec@5 37.596 (37.596)
+
+Test: [0/1]     Time 10.253 (10.253)    Loss 3.8346 (3.8346)    Prec@1 11.644 (11.644)  Prec@5 34.712 (34.712)
+
+ * Prec@1 11.644 Prec@5 34.712
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [43][0/1]        \Time 105.511 (105.511) Data 6.403 (6.403)      Loss 3.7291 (3.7291)    Prec@1 13.230 (13.230)  Prec@5 37.855 (37.855)
+
+Test: [0/1]     Time 10.196 (10.196)    Loss 3.8327 (3.8327)    Prec@1 11.627 (11.627)  Prec@5 34.780 (34.780)
+
+ * Prec@1 11.627 Prec@5 34.780
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [44][0/1]        \Time 106.393 (106.393) Data 6.334 (6.334)      Loss 3.7286 (3.7286)    Prec@1 13.196 (13.196)  Prec@5 37.804 (37.804)
+
+Test: [0/1]     Time 10.243 (10.243)    Loss 3.8309 (3.8309)    Prec@1 11.695 (11.695)  Prec@5 34.983 (34.983)
+
+ * Prec@1 11.695 Prec@5 34.983
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [45][0/1]        \Time 106.670 (106.670) Data 6.311 (6.311)      Loss 3.7247 (3.7247)    Prec@1 13.111 (13.111)  Prec@5 38.067 (38.067)
+
+Test: [0/1]     Time 10.366 (10.366)    Loss 3.8293 (3.8293)    Prec@1 11.729 (11.729)  Prec@5 34.966 (34.966)
+
+ * Prec@1 11.729 Prec@5 34.966
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [46][0/1]        \Time 105.511 (105.511) Data 6.382 (6.382)      Loss 3.7228 (3.7228)    Prec@1 13.298 (13.298)  Prec@5 38.012 (38.012)
+
+Test: [0/1]     Time 10.264 (10.264)    Loss 3.8277 (3.8277)    Prec@1 11.746 (11.746)  Prec@5 34.983 (34.983)
+
+ * Prec@1 11.746 Prec@5 34.983
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [47][0/1]        \Time 104.481 (104.481) Data 6.446 (6.446)      Loss 3.7254 (3.7254)    Prec@1 13.056 (13.056)  Prec@5 38.211 (38.211)
+
+Test: [0/1]     Time 10.243 (10.243)    Loss 3.8261 (3.8261)    Prec@1 11.746 (11.746)  Prec@5 35.051 (35.051)
+
+ * Prec@1 11.746 Prec@5 35.051
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [48][0/1]        \Time 104.633 (104.633) Data 6.324 (6.324)      Loss 3.7203 (3.7203)    Prec@1 13.391 (13.391)  Prec@5 38.338 (38.338)
+
+Test: [0/1]     Time 10.192 (10.192)    Loss 3.8247 (3.8247)    Prec@1 11.746 (11.746)  Prec@5 35.051 (35.051)
+
+ * Prec@1 11.746 Prec@5 35.051
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [49][0/1]        \Time 104.491 (104.491) Data 6.397 (6.397)      Loss 3.7196 (3.7196)    Prec@1 13.281 (13.281)  Prec@5 38.406 (38.406)
+
+Test: [0/1]     Time 10.396 (10.396)    Loss 3.8233 (3.8233)    Prec@1 11.780 (11.780)  Prec@5 35.102 (35.102)
+
+ * Prec@1 11.780 Prec@5 35.102
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [50][0/1]        \Time 104.097 (104.097) Data 6.452 (6.452)      Loss 3.7198 (3.7198)    Prec@1 13.315 (13.315)  Prec@5 38.219 (38.219)
+
+Test: [0/1]     Time 10.207 (10.207)    Loss 3.8219 (3.8219)    Prec@1 11.814 (11.814)  Prec@5 35.186 (35.186)
+
+ * Prec@1 11.814 Prec@5 35.186
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [51][0/1]        \Time 104.643 (104.643) Data 6.486 (6.486)      Loss 3.7223 (3.7223)    Prec@1 13.264 (13.264)  Prec@5 38.139 (38.139)
+
+Test: [0/1]     Time 10.224 (10.224)    Loss 3.8206 (3.8206)    Prec@1 11.797 (11.797)  Prec@5 35.153 (35.153)
+
+ * Prec@1 11.797 Prec@5 35.153
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [52][0/1]        \Time 105.892 (105.892) Data 6.418 (6.418)      Loss 3.7151 (3.7151)    Prec@1 13.260 (13.260)  Prec@5 38.308 (38.308)
+
+Test: [0/1]     Time 10.302 (10.302)    Loss 3.8193 (3.8193)    Prec@1 11.847 (11.847)  Prec@5 35.220 (35.220)
+
+ * Prec@1 11.847 Prec@5 35.220
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [53][0/1]        \Time 106.798 (106.798) Data 6.351 (6.351)      Loss 3.7140 (3.7140)    Prec@1 13.387 (13.387)  Prec@5 38.613 (38.613)
+
+Test: [0/1]     Time 10.427 (10.427)    Loss 3.8180 (3.8180)    Prec@1 11.898 (11.898)  Prec@5 35.288 (35.288)
+
+ * Prec@1 11.898 Prec@5 35.288
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [54][0/1]        \Time 106.695 (106.695) Data 6.406 (6.406)      Loss 3.7143 (3.7143)    Prec@1 13.382 (13.382)  Prec@5 38.376 (38.376)
+
+Test: [0/1]     Time 10.442 (10.442)    Loss 3.8168 (3.8168)    Prec@1 11.966 (11.966)  Prec@5 35.271 (35.271)
+
+ * Prec@1 11.966 Prec@5 35.271
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [55][0/1]        \Time 104.989 (104.989) Data 6.525 (6.525)      Loss 3.7122 (3.7122)    Prec@1 13.302 (13.302)  Prec@5 38.380 (38.380)
+
+Test: [0/1]     Time 10.238 (10.238)    Loss 3.8155 (3.8155)    Prec@1 12.017 (12.017)  Prec@5 35.322 (35.322)
+
+ * Prec@1 12.017 Prec@5 35.322
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [56][0/1]        \Time 104.807 (104.807) Data 6.338 (6.338)      Loss 3.7119 (3.7119)    Prec@1 13.238 (13.238)  Prec@5 38.681 (38.681)
+
+Test: [0/1]     Time 10.246 (10.246)    Loss 3.8143 (3.8143)    Prec@1 12.068 (12.068)  Prec@5 35.390 (35.390)
+
+ * Prec@1 12.068 Prec@5 35.390
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [57][0/1]        \Time 104.883 (104.883) Data 6.498 (6.498)      Loss 3.7086 (3.7086)    Prec@1 13.548 (13.548)  Prec@5 38.677 (38.677)
+
+Test: [0/1]     Time 10.239 (10.239)    Loss 3.8130 (3.8130)    Prec@1 12.068 (12.068)  Prec@5 35.390 (35.390)
+
+ * Prec@1 12.068 Prec@5 35.390
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [58][0/1]        \Time 104.534 (104.534) Data 6.300 (6.300)      Loss 3.7085 (3.7085)    Prec@1 13.298 (13.298)  Prec@5 38.774 (38.774)
+
+Test: [0/1]     Time 10.301 (10.301)    Loss 3.8118 (3.8118)    Prec@1 12.102 (12.102)  Prec@5 35.424 (35.424)
+
+ * Prec@1 12.102 Prec@5 35.424
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [59][0/1]        \Time 104.968 (104.968) Data 6.400 (6.400)      Loss 3.7089 (3.7089)    Prec@1 13.501 (13.501)  Prec@5 38.596 (38.596)
+
+Test: [0/1]     Time 10.623 (10.623)    Loss 3.8106 (3.8106)    Prec@1 12.102 (12.102)  Prec@5 35.508 (35.508)
+
+ * Prec@1 12.102 Prec@5 35.508
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [60][0/1]        \Time 104.210 (104.210) Data 7.118 (7.118)      Loss 3.7098 (3.7098)    Prec@1 13.476 (13.476)  Prec@5 38.533 (38.533)
+
+Test: [0/1]     Time 10.361 (10.361)    Loss 3.8094 (3.8094)    Prec@1 12.153 (12.153)  Prec@5 35.475 (35.475)
+
+ * Prec@1 12.153 Prec@5 35.475
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [61][0/1]        \Time 105.401 (105.401) Data 6.413 (6.413)      Loss 3.7048 (3.7048)    Prec@1 13.531 (13.531)  Prec@5 38.791 (38.791)
+
+Test: [0/1]     Time 10.231 (10.231)    Loss 3.8082 (3.8082)    Prec@1 12.186 (12.186)  Prec@5 35.542 (35.542)
+
+ * Prec@1 12.186 Prec@5 35.542
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [62][0/1]        \Time 107.218 (107.218) Data 6.440 (6.440)      Loss 3.7038 (3.7038)    Prec@1 13.471 (13.471)  Prec@5 38.940 (38.940)
+
+Test: [0/1]     Time 10.233 (10.233)    Loss 3.8071 (3.8071)    Prec@1 12.169 (12.169)  Prec@5 35.492 (35.492)
+
+ * Prec@1 12.169 Prec@5 35.492
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [63][0/1]        \Time 104.601 (104.601) Data 6.352 (6.352)      Loss 3.7035 (3.7035)    Prec@1 13.577 (13.577)  Prec@5 38.855 (38.855)
+
+Test: [0/1]     Time 10.296 (10.296)    Loss 3.8059 (3.8059)    Prec@1 12.186 (12.186)  Prec@5 35.644 (35.644)
+
+ * Prec@1 12.186 Prec@5 35.644
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [64][0/1]        \Time 104.919 (104.919) Data 6.394 (6.394)      Loss 3.7009 (3.7009)    Prec@1 13.514 (13.514)  Prec@5 39.126 (39.126)
+
+Test: [0/1]     Time 10.291 (10.291)    Loss 3.8048 (3.8048)    Prec@1 12.203 (12.203)  Prec@5 35.729 (35.729)
+
+ * Prec@1 12.203 Prec@5 35.729
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [65][0/1]        \Time 104.832 (104.832) Data 6.393 (6.393)      Loss 3.7031 (3.7031)    Prec@1 13.582 (13.582)  Prec@5 38.902 (38.902)
+
+Test: [0/1]     Time 10.302 (10.302)    Loss 3.8037 (3.8037)    Prec@1 12.220 (12.220)  Prec@5 35.763 (35.763)
+
+ * Prec@1 12.220 Prec@5 35.763
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [66][0/1]        \Time 104.355 (104.355) Data 6.388 (6.388)      Loss 3.6989 (3.6989)    Prec@1 13.565 (13.565)  Prec@5 38.948 (38.948)
+
+Test: [0/1]     Time 10.423 (10.423)    Loss 3.8026 (3.8026)    Prec@1 12.254 (12.254)  Prec@5 35.763 (35.763)
+
+ * Prec@1 12.254 Prec@5 35.763
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [67][0/1]        \Time 105.667 (105.667) Data 6.279 (6.279)      Loss 3.6991 (3.6991)    Prec@1 13.764 (13.764)  Prec@5 38.999 (38.999)
+
+Test: [0/1]     Time 10.493 (10.493)    Loss 3.8014 (3.8014)    Prec@1 12.271 (12.271)  Prec@5 35.797 (35.797)
+
+ * Prec@1 12.271 Prec@5 35.797
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [68][0/1]        \Time 104.452 (104.452) Data 6.399 (6.399)      Loss 3.6984 (3.6984)    Prec@1 13.709 (13.709)  Prec@5 39.113 (39.113)
+
+Test: [0/1]     Time 10.206 (10.206)    Loss 3.8003 (3.8003)    Prec@1 12.271 (12.271)  Prec@5 35.831 (35.831)
+
+ * Prec@1 12.271 Prec@5 35.831
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [69][0/1]        \Time 106.453 (106.453) Data 6.355 (6.355)      Loss 3.6954 (3.6954)    Prec@1 13.891 (13.891)  Prec@5 39.207 (39.207)
+
+Test: [0/1]     Time 10.326 (10.326)    Loss 3.7992 (3.7992)    Prec@1 12.288 (12.288)  Prec@5 35.831 (35.831)
+
+ * Prec@1 12.288 Prec@5 35.831
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [70][0/1]        \Time 107.999 (107.999) Data 6.501 (6.501)      Loss 3.6942 (3.6942)    Prec@1 13.836 (13.836)  Prec@5 39.097 (39.097)
+
+Test: [0/1]     Time 10.488 (10.488)    Loss 3.7981 (3.7981)    Prec@1 12.305 (12.305)  Prec@5 35.864 (35.864)
+
+ * Prec@1 12.305 Prec@5 35.864
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [71][0/1]        \Time 104.794 (104.794) Data 6.371 (6.371)      Loss 3.6960 (3.6960)    Prec@1 13.840 (13.840)  Prec@5 38.974 (38.974)
+
+Test: [0/1]     Time 10.149 (10.149)    Loss 3.7970 (3.7970)    Prec@1 12.322 (12.322)  Prec@5 35.847 (35.847)
+
+ * Prec@1 12.322 Prec@5 35.847
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [72][0/1]        \Time 105.408 (105.408) Data 6.367 (6.367)      Loss 3.6956 (3.6956)    Prec@1 13.620 (13.620)  Prec@5 39.283 (39.283)
+
+Test: [0/1]     Time 10.216 (10.216)    Loss 3.7959 (3.7959)    Prec@1 12.373 (12.373)  Prec@5 35.898 (35.898)
+
+ * Prec@1 12.373 Prec@5 35.898
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [73][0/1]        \Time 104.145 (104.145) Data 6.466 (6.466)      Loss 3.6917 (3.6917)    Prec@1 13.806 (13.806)  Prec@5 39.317 (39.317)
+
+Test: [0/1]     Time 10.160 (10.160)    Loss 3.7948 (3.7948)    Prec@1 12.390 (12.390)  Prec@5 35.949 (35.949)
+
+ * Prec@1 12.390 Prec@5 35.949
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [74][0/1]        \Time 104.852 (104.852) Data 6.404 (6.404)      Loss 3.6911 (3.6911)    Prec@1 13.933 (13.933)  Prec@5 39.224 (39.224)
+
+Test: [0/1]     Time 10.305 (10.305)    Loss 3.7938 (3.7938)    Prec@1 12.407 (12.407)  Prec@5 35.966 (35.966)
+
+ * Prec@1 12.407 Prec@5 35.966
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [75][0/1]        \Time 104.248 (104.248) Data 6.418 (6.418)      Loss 3.6891 (3.6891)    Prec@1 14.018 (14.018)  Prec@5 39.482 (39.482)
+
+Test: [0/1]     Time 10.291 (10.291)    Loss 3.7928 (3.7928)    Prec@1 12.390 (12.390)  Prec@5 36.017 (36.017)
+
+ * Prec@1 12.390 Prec@5 36.017
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [76][0/1]        \Time 105.714 (105.714) Data 6.383 (6.383)      Loss 3.6880 (3.6880)    Prec@1 14.056 (14.056)  Prec@5 39.533 (39.533)
+
+Test: [0/1]     Time 10.295 (10.295)    Loss 3.7917 (3.7917)    Prec@1 12.424 (12.424)  Prec@5 36.102 (36.102)
+
+ * Prec@1 12.424 Prec@5 36.102
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [77][0/1]        \Time 105.872 (105.872) Data 6.335 (6.335)      Loss 3.6866 (3.6866)    Prec@1 13.819 (13.819)  Prec@5 39.525 (39.525)
+
+Test: [0/1]     Time 10.326 (10.326)    Loss 3.7906 (3.7906)    Prec@1 12.441 (12.441)  Prec@5 36.102 (36.102)
+
+ * Prec@1 12.441 Prec@5 36.102
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [78][0/1]        \Time 105.578 (105.578) Data 6.283 (6.283)      Loss 3.6859 (3.6859)    Prec@1 13.988 (13.988)  Prec@5 39.525 (39.525)
+
+Test: [0/1]     Time 10.425 (10.425)    Loss 3.7896 (3.7896)    Prec@1 12.475 (12.475)  Prec@5 36.068 (36.068)
+
+ * Prec@1 12.475 Prec@5 36.068
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [79][0/1]        \Time 107.662 (107.662) Data 6.471 (6.471)      Loss 3.6881 (3.6881)    Prec@1 13.993 (13.993)  Prec@5 39.478 (39.478)
+
+Test: [0/1]     Time 10.238 (10.238)    Loss 3.7886 (3.7886)    Prec@1 12.508 (12.508)  Prec@5 36.119 (36.119)
+
+ * Prec@1 12.508 Prec@5 36.119
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [80][0/1]        \Time 105.017 (105.017) Data 6.484 (6.484)      Loss 3.6839 (3.6839)    Prec@1 13.967 (13.967)  Prec@5 39.647 (39.647)
+
+Test: [0/1]     Time 10.379 (10.379)    Loss 3.7876 (3.7876)    Prec@1 12.492 (12.492)  Prec@5 36.169 (36.169)
+
+ * Prec@1 12.492 Prec@5 36.169
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [81][0/1]        \Time 104.836 (104.836) Data 6.475 (6.475)      Loss 3.6814 (3.6814)    Prec@1 14.069 (14.069)  Prec@5 39.707 (39.707)
+
+Test: [0/1]     Time 10.270 (10.270)    Loss 3.7866 (3.7866)    Prec@1 12.508 (12.508)  Prec@5 36.271 (36.271)
+
+ * Prec@1 12.508 Prec@5 36.271
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [82][0/1]        \Time 105.227 (105.227) Data 6.504 (6.504)      Loss 3.6841 (3.6841)    Prec@1 13.781 (13.781)  Prec@5 39.571 (39.571)
+
+Test: [0/1]     Time 10.350 (10.350)    Loss 3.7855 (3.7855)    Prec@1 12.559 (12.559)  Prec@5 36.254 (36.254)
+
+ * Prec@1 12.559 Prec@5 36.254
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [83][0/1]        \Time 104.246 (104.246) Data 6.398 (6.398)      Loss 3.6825 (3.6825)    Prec@1 14.082 (14.082)  Prec@5 39.597 (39.597)
+
+Test: [0/1]     Time 10.265 (10.265)    Loss 3.7845 (3.7845)    Prec@1 12.542 (12.542)  Prec@5 36.254 (36.254)
+
+ * Prec@1 12.542 Prec@5 36.254
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [84][0/1]        \Time 104.925 (104.925) Data 6.436 (6.436)      Loss 3.6814 (3.6814)    Prec@1 14.044 (14.044)  Prec@5 39.584 (39.584)
+
+Test: [0/1]     Time 10.253 (10.253)    Loss 3.7834 (3.7834)    Prec@1 12.559 (12.559)  Prec@5 36.356 (36.356)
+
+ * Prec@1 12.559 Prec@5 36.356
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [85][0/1]        \Time 105.566 (105.566) Data 6.474 (6.474)      Loss 3.6771 (3.6771)    Prec@1 14.116 (14.116)  Prec@5 39.808 (39.808)
+
+Test: [0/1]     Time 10.248 (10.248)    Loss 3.7824 (3.7824)    Prec@1 12.559 (12.559)  Prec@5 36.373 (36.373)
+
+ * Prec@1 12.559 Prec@5 36.373
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [86][0/1]        \Time 105.126 (105.126) Data 6.461 (6.461)      Loss 3.6770 (3.6770)    Prec@1 14.027 (14.027)  Prec@5 39.753 (39.753)
+
+Test: [0/1]     Time 10.300 (10.300)    Loss 3.7814 (3.7814)    Prec@1 12.576 (12.576)  Prec@5 36.390 (36.390)
+
+ * Prec@1 12.576 Prec@5 36.390
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [87][0/1]        \Time 106.276 (106.276) Data 6.404 (6.404)      Loss 3.6763 (3.6763)    Prec@1 14.192 (14.192)  Prec@5 39.753 (39.753)
+
+Test: [0/1]     Time 10.577 (10.577)    Loss 3.7804 (3.7804)    Prec@1 12.610 (12.610)  Prec@5 36.441 (36.441)
+
+ * Prec@1 12.610 Prec@5 36.441
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [88][0/1]        \Time 104.851 (104.851) Data 6.459 (6.459)      Loss 3.6771 (3.6771)    Prec@1 14.018 (14.018)  Prec@5 39.910 (39.910)
+
+Test: [0/1]     Time 10.243 (10.243)    Loss 3.7794 (3.7794)    Prec@1 12.610 (12.610)  Prec@5 36.458 (36.458)
+
+ * Prec@1 12.610 Prec@5 36.458
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [89][0/1]        \Time 103.989 (103.989) Data 6.305 (6.305)      Loss 3.6761 (3.6761)    Prec@1 14.056 (14.056)  Prec@5 39.944 (39.944)
+
+Test: [0/1]     Time 10.366 (10.366)    Loss 3.7785 (3.7785)    Prec@1 12.593 (12.593)  Prec@5 36.508 (36.508)
+
+ * Prec@1 12.593 Prec@5 36.508
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [90][0/1]        \Time 105.934 (105.934) Data 6.382 (6.382)      Loss 3.6737 (3.6737)    Prec@1 14.120 (14.120)  Prec@5 39.825 (39.825)
+
+Test: [0/1]     Time 10.366 (10.366)    Loss 3.7775 (3.7775)    Prec@1 12.593 (12.593)  Prec@5 36.559 (36.559)
+
+ * Prec@1 12.593 Prec@5 36.559
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [91][0/1]        \Time 105.013 (105.013) Data 6.274 (6.274)      Loss 3.6721 (3.6721)    Prec@1 14.222 (14.222)  Prec@5 40.131 (40.131)
+
+Test: [0/1]     Time 10.332 (10.332)    Loss 3.7765 (3.7765)    Prec@1 12.593 (12.593)  Prec@5 36.610 (36.610)
+
+ * Prec@1 12.593 Prec@5 36.610
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [92][0/1]        \Time 105.242 (105.242) Data 6.399 (6.399)      Loss 3.6709 (3.6709)    Prec@1 14.120 (14.120)  Prec@5 40.042 (40.042)
+
+Test: [0/1]     Time 10.335 (10.335)    Loss 3.7756 (3.7756)    Prec@1 12.661 (12.661)  Prec@5 36.627 (36.627)
+
+ * Prec@1 12.661 Prec@5 36.627
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [93][0/1]        \Time 105.177 (105.177) Data 6.396 (6.396)      Loss 3.6720 (3.6720)    Prec@1 14.166 (14.166)  Prec@5 40.075 (40.075)
+
+Test: [0/1]     Time 10.333 (10.333)    Loss 3.7746 (3.7746)    Prec@1 12.678 (12.678)  Prec@5 36.695 (36.695)
+
+ * Prec@1 12.678 Prec@5 36.695
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [94][0/1]        \Time 104.465 (104.465) Data 6.408 (6.408)      Loss 3.6722 (3.6722)    Prec@1 14.171 (14.171)  Prec@5 39.880 (39.880)
+
+Test: [0/1]     Time 10.439 (10.439)    Loss 3.7736 (3.7736)    Prec@1 12.661 (12.661)  Prec@5 36.729 (36.729)
+
+ * Prec@1 12.661 Prec@5 36.729
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [95][0/1]        \Time 104.970 (104.970) Data 6.346 (6.346)      Loss 3.6682 (3.6682)    Prec@1 14.188 (14.188)  Prec@5 40.063 (40.063)
+
+Test: [0/1]     Time 10.379 (10.379)    Loss 3.7727 (3.7727)    Prec@1 12.661 (12.661)  Prec@5 36.746 (36.746)
+
+ * Prec@1 12.661 Prec@5 36.746
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [96][0/1]        \Time 105.507 (105.507) Data 6.455 (6.455)      Loss 3.6687 (3.6687)    Prec@1 14.183 (14.183)  Prec@5 39.897 (39.897)
+
+Test: [0/1]     Time 10.254 (10.254)    Loss 3.7717 (3.7717)    Prec@1 12.678 (12.678)  Prec@5 36.780 (36.780)
+
+ * Prec@1 12.678 Prec@5 36.780
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [97][0/1]        \Time 104.805 (104.805) Data 6.429 (6.429)      Loss 3.6661 (3.6661)    Prec@1 14.281 (14.281)  Prec@5 40.025 (40.025)
+
+Test: [0/1]     Time 10.276 (10.276)    Loss 3.7708 (3.7708)    Prec@1 12.644 (12.644)  Prec@5 36.814 (36.814)
+
+ * Prec@1 12.644 Prec@5 36.814
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [98][0/1]        \Time 105.143 (105.143) Data 6.395 (6.395)      Loss 3.6685 (3.6685)    Prec@1 14.154 (14.154)  Prec@5 40.042 (40.042)
+
+Test: [0/1]     Time 10.206 (10.206)    Loss 3.7699 (3.7699)    Prec@1 12.678 (12.678)  Prec@5 36.898 (36.898)
+
+ * Prec@1 12.678 Prec@5 36.898
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [99][0/1]        \Time 105.309 (105.309) Data 6.454 (6.454)      Loss 3.6654 (3.6654)    Prec@1 14.073 (14.073)  Prec@5 40.368 (40.368)
+
+Test: [0/1]     Time 10.254 (10.254)    Loss 3.7689 (3.7689)    Prec@1 12.695 (12.695)  Prec@5 36.949 (36.949)
+
+ * Prec@1 12.695 Prec@5 36.949
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+
+
+[INFO] Saved Model to leafsnap_model.pth
+
+
+
+[Learning Rate] 0.000100
+
+Epoch: [100][0/1]       \Time 104.575 (104.575) Data 6.396 (6.396)      Loss 3.6637 (3.6637)    Prec@1 14.332 (14.332)  Prec@5 40.342 (40.342)
+
+Test: [0/1]     Time 10.267 (10.267)    Loss 3.7680 (3.7680)    Prec@1 12.729 (12.729)  Prec@5 37.034 (37.034)
+
+ * Prec@1 12.729 Prec@5 37.034
+
+
+
+[INFO] Saved Model to model_best.pth.tar
+
+[INFO] Saved Model to leafsnap_model.pth

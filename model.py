@@ -15,7 +15,6 @@ import torch.nn.parallel
 import torch.optim as optim
 import torchvision
 import torchvision.models as models
-import utils
 
 from PIL import Image
 from averagemeter import *
@@ -28,27 +27,35 @@ from torchvision import datasets
 from torchvision import transforms
 
 # GLOBAL CONSTANTS
-INPUT_SIZE = 16
-BATCH_SIZE = 23598
+INPUT_SIZE = 224
+BATCH_SIZE = 128
 NUM_CLASSES = 185
+<<<<<<< HEAD
 NUM_EPOCHS = 100
 LEARNING_RATE = 0.0001
+=======
+NUM_EPOCHS = 50
+LEARNING_RATE = 1e-4 #start from learning rate after 40 epochs
+>>>>>>> gpu
 USE_CUDA = torch.cuda.is_available()
 best_prec1 = 0
 classes = []
 
 # ARGS Parser
 parser = argparse.ArgumentParser(description='PyTorch LeafSnap Training')
-parser.add_argument('--resume', default='', type=str, metavar='PATH',
+parser.add_argument('--resume', required = True, type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 args = parser.parse_args()
 ##Hardcoded checkpoint
 args.resume = 'checkpoint.pth.tar'
 
 # Training method which trains model for 1 epoch
+<<<<<<< HEAD
 
 # saving all relevant accuraccy and loss parameters
 
+=======
+>>>>>>> gpu
 def train(train_loader, model, criterion, optimizer, epoch):
     batch_time = AverageMeter()
     data_time = AverageMeter()
@@ -60,7 +67,16 @@ def train(train_loader, model, criterion, optimizer, epoch):
     model.train()
 
     end = time.time()
-    for i, (input, target) in enumerate(train_loader):
+
+    # Make file and write header
+    timestamp_string = time.strftime("%Y%m%d-%H%M%S") 
+    filename = './epoch_data/' + timestamp_string + '.txt'
+    with open(filename, 'a') as a:
+        a.write('#Epoch  i\t\tTime\t\t  Data\t\t   Loss\t\t   Prec@1\t\t   Prec@5 \n')
+    
+#    for i, (input, target) in enumerate(train_loader):
+    for i, data in enumerate(train_loader):
+        (input,target),(path,_) = data
         # measure data loading time
         if USE_CUDA:
             input = input.cuda(async=True)
@@ -76,10 +92,10 @@ def train(train_loader, model, criterion, optimizer, epoch):
         loss = criterion(output, target_var)
 
         # measure accuracy and record loss
-        prec1, prec5 = accuracy(output.data, target, topk=(1, 5))
-        losses.update(loss.data[0], input.size(0))
-        top1.update(prec1[0], input.size(0))
-        top5.update(prec5[0], input.size(0))
+        prec1, prec5 = accuracy(output.data, target, topk=(1, 5), path=path, minibatch = i)
+        losses.update(loss.item(), input.size(0))
+        top1.update(prec1.item(), input.size(0))
+        top5.update(prec5.item(), input.size(0))
 
         # compute gradient and do SGD step
         optimizer.zero_grad()
@@ -98,7 +114,18 @@ def train(train_loader, model, criterion, optimizer, epoch):
                   'Prec@1 {top1.val:.3f} ({top1.avg:.3f})\t'
                   'Prec@5 {top5.val:.3f} ({top5.avg:.3f})'.format(
                       epoch, i, len(train_loader), batch_time=batch_time,
-                      data_time=data_time, loss=losses, top1=top1, top5=top5))
+                      data_time=data_time, loss=losses, top1=top1, top5=top5)) 
+
+            with open(filename, 'a') as a:
+                a.write('{0}\t'
+                        '{1}'
+                        '{batch_time.val:16.3f} \t'
+                        '{data_time.val:16.3f}\t'
+                        '{loss.val:16.4f}\t'
+                        '{top1.val:16.3f} \t'
+                        '{top5.val:16.3f}\n'.format(
+                            epoch, i, batch_time=batch_time,
+                            data_time=data_time, loss=losses, top1=top1, top5=top5))
 
 # Validation method
 def validate(val_loader, model, criterion):
@@ -113,12 +140,14 @@ def validate(val_loader, model, criterion):
     model.eval()
 
     end = time.time()
+    
     for i, (input, target) in enumerate(val_loader):
         if USE_CUDA:
             input = input.cuda(async=True)
             target = target.cuda(async=True)
-        input_var = torch.autograd.Variable(input, volatile=True)
-        target_var = torch.autograd.Variable(target, volatile=True)
+        with torch.no_grad(): 
+            input_var = torch.autograd.Variable(input)
+            target_var = torch.autograd.Variable(target)
 
         # compute output
         output = model(input_var)
@@ -126,9 +155,9 @@ def validate(val_loader, model, criterion):
 
         # measure accuracy and record loss
         prec1, prec5 = accuracy(output.data, target, topk=(1, 5))
-        losses.update(loss.data[0], input.size(0))
-        top1.update(prec1[0], input.size(0))
-        top5.update(prec5[0], input.size(0))
+        losses.update(loss.item(), input.size(0))
+        top1.update(prec1.item(), input.size(0))
+        top5.update(prec5.item(), input.size(0))
 
         # measure elapsed time
         batch_time.update(time.time() - end)
@@ -166,7 +195,7 @@ def adjust_learning_rate(optimizer, epoch):
         param_group['lr'] = lr
 
 
-def accuracy(output, target, topk=(1,)):
+def accuracy(output, target, topk=(1,), path = None, minibatch = None):
     """Computes the precision@k for the specified values of k"""
     maxk = max(topk)
     batch_size = target.size(0)
@@ -179,7 +208,32 @@ def accuracy(output, target, topk=(1,)):
     for k in topk:
         correct_k = correct[:k].view(-1).float().sum(0)
         res.append(correct_k.mul_(100.0 / batch_size))
+    ## save mislabeled data
+    if path:
+        filename = [os.path.basename(p) for p in path]
+        true_label = [os.path.basename(os.path.dirname(p)) for p in path]
+        pred_label = [classes[p] for p in pred[0]]
+        data = np.array([filename, true_label, pred_label])
+        out = pd.DataFrame(data.T,columns =['filename', 'true_label','pred_label'])
+        out.index.name = 'index'
+        out['correct?'] = out['pred_label']==out['true_label']
+        out_file = 'predicted_labels.csv'
+
+        if os.path.isfile(out_file):
+            if minibatch==0: #if first minibatch, overwrite existing file
+                out.to_csv(out_file)
+            else:
+                df = pd.read_csv(out_file, index_col = 0)
+                df = pd.concat([df,out],axis = 0, ignore_index = True)
+                df.to_csv(out_file)
+        else: # if file does not exist, make file
+            out.to_csv(out_file)
+    
     return res
+
+class MyImageFolder(datasets.ImageFolder): #return image path and loader
+    def __getitem__(self, index):
+        return super(MyImageFolder, self).__getitem__(index), self.imgs[index]
 
 ###############################################################################
 
@@ -189,29 +243,30 @@ model = models.resnet18(pretrained=False)
 # model = resnet101()
 # model = densenet121()
 model.fc = nn.Linear(512, NUM_CLASSES)
+11111
+#prin1t('\n[INFO] Model Architecture: \n{}'.format(model))
 
 
-print('\n[INFO] Model Architecture: \n{}'.format(model))
-
-criterion = nn.CrossEntropyLoss()
+criter1ion = nn.CrossEntropyLoss()
 if USE_CUDA:
     model = torch.nn.DataParallel(model).cuda()
-    criterion = criterion.cuda()
+    cri1terion = criterion.cuda()
 optimizer = optim.SGD(model.parameters(), lr=LEARNING_RATE,
                       momentum=0.9, weight_decay=1e-4, nesterov=True)
-#optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE, betas=(0.9, 0.999), 
+#optimiz1er = optim.Adam(model.parameters(), lr=LEARNING_RATE, betas=(0.9, 0.999), 
 #                       eps=1e-08, weight_decay=1e-4)
 
-if args.resume:
+if args.r1esume:
     if os.path.isfile(args.resume):
         print("=> loading checkpoint '{}'".format(args.resume))
-        checkpoint = torch.load(args.resume)
+        ch1eckpoint = torch.load(args.resume)
         args.start_epoch = checkpoint['epoch']
         best_prec1 = checkpoint['best_prec1']
-        model.load_state_dict(checkpoint['state_dict'])
+        mod1el.load_state_dict(checkpoint['state_dict'])
         optimizer.load_state_dict(checkpoint['optimizer'])
         print("=> loaded checkpoint '{}' (epoch {})"
               .format(args.resume, checkpoint['epoch']))
+        print("=> Loaded model Prec1 = %0.2f%%"%best_prec1.item())
     else:
         print("=> no checkpoint found at '{}'".format(args.resume))
 
@@ -220,19 +275,20 @@ traindir = os.path.join('dataset', 'train_%d'%INPUT_SIZE)
 testdir = os.path.join('dataset', 'test_%d'%INPUT_SIZE)
 normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                  std=[0.229, 0.224, 0.225])
-data_train = datasets.ImageFolder(traindir, transforms.Compose([
-    transforms.RandomHorizontalFlip(),
-    transforms.Grayscale(),
-    transforms.ToTensor(),
-    normalize]))
-data_test = datasets.ImageFolder(testdir, transforms.Compose([
-    transforms.Grayscale(),
-    transforms.ToTensor(),  
-    normalize]))
-classes = data_train.classes
 
-train_loader = torch.utils.data.DataLoader(data_train, batch_size=BATCH_SIZE, shuffle=True, num_workers=0)
-val_loader = torch.utils.data.DataLoader(data_test, batch_size=BATCH_SIZE, shuffle=False, num_workers=0)
+data_train = MyImageFolder(traindir, transforms.Compose([
+            transforms.RandomHorizontalFlip(),
+            transforms.ToTensor(),
+            normalize]))
+data_test = datasets.ImageFolder(testdir, transforms.Compose([
+            transforms.ToTensor(),
+            normalize]))
+
+classes = data_train.classes
+classes_test = data_test.classes
+
+train_loader = torch.utils.data.DataLoader(data_train, batch_size=BATCH_SIZE, shuffle=True, num_workers=4)
+val_loader = torch.utils.data.DataLoader(data_test, batch_size=BATCH_SIZE, shuffle=False, num_workers=4) 
 
 print('\n[INFO] Training Started')
 for epoch in range(1, NUM_EPOCHS + 1):
@@ -251,7 +307,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         'best_prec1': best_prec1,
         'optimizer': optimizer.state_dict(),
     }, is_best)
-    print('\n[INFO] Saved Model to leafsnap_model.pth')
+    print('\n[INFO] Saved Model to leafsnap_model.pth')    
     torch.save(model, 'leafsnap_model.pth')
 
 print('\n[DONE]')
