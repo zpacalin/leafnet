@@ -27,16 +27,11 @@ from torchvision import datasets
 from torchvision import transforms
 
 # GLOBAL CONSTANTS
-INPUT_SIZE = 224
+INPUT_SIZE = 16 
 BATCH_SIZE = 128
 NUM_CLASSES = 185
-<<<<<<< HEAD
 NUM_EPOCHS = 100
 LEARNING_RATE = 0.1
-=======
-NUM_EPOCHS = 50
-LEARNING_RATE = 1e-4 #start from learning rate after 40 epochs
->>>>>>> gpu
 USE_CUDA = torch.cuda.is_available()
 best_prec1 = 0
 classes = []
@@ -238,26 +233,26 @@ model = models.resnet18(pretrained=False)
 # model = resnet101()
 # model = densenet121()
 model.fc = nn.Linear(512, NUM_CLASSES)
-11111
-#prin1t('\n[INFO] Model Architecture: \n{}'.format(model))
+
+#print('\n[INFO] Model Architecture: \n{}'.format(model))
 
 
-criter1ion = nn.CrossEntropyLoss()
+criterion = nn.CrossEntropyLoss()
 if USE_CUDA:
     model = torch.nn.DataParallel(model).cuda()
-    cri1terion = criterion.cuda()
+    criterion = criterion.cuda()
 optimizer = optim.SGD(model.parameters(), lr=LEARNING_RATE,
                       momentum=0.9, weight_decay=1e-4, nesterov=True)
-#optimiz1er = optim.Adam(model.parameters(), lr=LEARNING_RATE, betas=(0.9, 0.999), 
+#optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE, betas=(0.9, 0.999), 
 #                       eps=1e-08, weight_decay=1e-4)
 
-if args.r1esume:
+if args.resume:
     if os.path.isfile(args.resume):
         print("=> loading checkpoint '{}'".format(args.resume))
         ch1eckpoint = torch.load(args.resume)
         args.start_epoch = checkpoint['epoch']
         best_prec1 = checkpoint['best_prec1']
-        mod1el.load_state_dict(checkpoint['state_dict'])
+        model.load_state_dict(checkpoint['state_dict'])
         optimizer.load_state_dict(checkpoint['optimizer'])
         print("=> loaded checkpoint '{}' (epoch {})"
               .format(args.resume, checkpoint['epoch']))
