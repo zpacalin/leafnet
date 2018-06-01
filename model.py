@@ -27,11 +27,17 @@ from torchvision import datasets
 from torchvision import transforms
 
 # GLOBAL CONSTANTS
+
+MODEL_ID = 1 # CHANGE MODEL_ID VALUE TO SELECT THE MODEL to use!
+# INPUT_SIZE = 224
 INPUT_SIZE = 16 
 BATCH_SIZE = 128
 NUM_CLASSES = 185
-NUM_EPOCHS = 100
+# NUM_EPOCHS = 50
+NUM_EPOCHS = 100 
+# LEARNING_RATE = 1e-4 #start from learning rate after 40 epochs
 LEARNING_RATE = 0.1
+
 USE_CUDA = torch.cuda.is_available()
 best_prec1 = 0
 classes = []
@@ -41,6 +47,42 @@ parser = argparse.ArgumentParser(description='PyTorch LeafSnap Training')
 parser.add_argument('--resume', required = True, type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
 args = parser.parse_args()
+
+# Model selection function 
+def selectModel(MODEL_ID):
+    if (MODEL_ID == 1)
+        model = models.resnet18(pretrained=False)
+        model.fc = nn.Linear(512, NUM_CLASSES)
+        modelName = "resnet18"
+    else if (MODEL_ID == 2)
+        model = VGG('VGG16')
+        modelName = "VGG16"
+    else if (MODEL_ID == 2)
+        model = resnet101()
+        model.fc = nn.Linear(2048, NUM_CLASSES)
+        modelName = "resnet101"
+    else
+        model = densenet121()
+        modelName = "densenet121"
+    return model, modelName
+
+# Create data file with header
+def createHeadertxt(modelName, INPUT_SIZE, filename):
+    with open(filename, 'b') as b:
+        b.write('#Epoch  i\t\tTime\t\t  Data\t\t   Loss\t\t   Prec@1\t\t   Prec@5 \n')
+
+# Save epoch data to txt
+def saveEpochData2txt(filename):
+    with open(filename, 'b') as b:
+                    b.write('{0}\t'
+                            '{1}'
+                            '{batch_time.val:16.3f} \t'
+                            '{data_time.val:16.3f}\t'
+                            '{loss.val:16.4f}\t'
+                            '{top1.val:16.3f} \t'
+                            '{top5.val:16.3f}\n'.format(
+                                epoch, i, batch_time=batch_time,
+                                data_time=data_time, loss=losses, top1=top1, top5=top5))
 
 # Training method which trains model for 1 epoch
 
@@ -57,14 +99,8 @@ def train(train_loader, model, criterion, optimizer, epoch):
     model.train()
 
     end = time.time()
-
-    # Make file and write header
-    timestamp_string = time.strftime("%Y%m%d-%H%M%S") 
-    filename = './epoch_data/' + timestamp_string + '.txt'
-    with open(filename, 'a') as a:
-        a.write('#Epoch  i\t\tTime\t\t  Data\t\t   Loss\t\t   Prec@1\t\t   Prec@5 \n')
     
-#    for i, (input, target) in enumerate(train_loader):
+    # for i, (input, target) in enumerate(train_loader):
     for i, data in enumerate(train_loader):
         (input,target),(path,_) = data
         # measure data loading time
@@ -106,16 +142,7 @@ def train(train_loader, model, criterion, optimizer, epoch):
                       epoch, i, len(train_loader), batch_time=batch_time,
                       data_time=data_time, loss=losses, top1=top1, top5=top5)) 
 
-            with open(filename, 'a') as a:
-                a.write('{0}\t'
-                        '{1}'
-                        '{batch_time.val:16.3f} \t'
-                        '{data_time.val:16.3f}\t'
-                        '{loss.val:16.4f}\t'
-                        '{top1.val:16.3f} \t'
-                        '{top5.val:16.3f}\n'.format(
-                            epoch, i, batch_time=batch_time,
-                            data_time=data_time, loss=losses, top1=top1, top5=top5))
+            saveEpochData2txt(filename_train)
 
 # Validation method
 def validate(val_loader, model, criterion):
@@ -161,6 +188,8 @@ def validate(val_loader, model, criterion):
                   'Prec@5 {top5.val:.3f} ({top5.avg:.3f})'.format(
                       i, len(val_loader), batch_time=batch_time, loss=losses,
                       top1=top1, top5=top5))
+            
+            saveEpochData2txt(filename_dev)
 
     print(' * Prec@1 {top1.avg:.3f} Prec@5 {top5.avg:.3f}'
           .format(top1=top1, top5=top5))
@@ -210,7 +239,7 @@ def accuracy(output, target, topk=(1,), path = None, minibatch = None):
         out_file = 'predicted_labels.csv'
 
         if os.path.isfile(out_file):
-            if minibatch==0: #if first minibatch, overwrite existing file
+            if minibatch==0: # if first minibatch, overwrite existing file
                 out.to_csv(out_file)
             else:
                 df = pd.read_csv(out_file, index_col = 0)
@@ -228,15 +257,9 @@ class MyImageFolder(datasets.ImageFolder): #return image path and loader
 ###############################################################################
 
 print('\n[INFO] Creating Model')
-model = models.resnet18(pretrained=False)
-# model = VGG('VGG16')
-# model = resnet101()
-# model = densenet121()
-model.fc = nn.Linear(512, NUM_CLASSES)
+model, modelName = selectModel(MODEL_ID)
 
-#print('\n[INFO] Model Architecture: \n{}'.format(model))
-
-
+# Define loss
 criterion = nn.CrossEntropyLoss()
 if USE_CUDA:
     model = torch.nn.DataParallel(model).cuda()
@@ -279,6 +302,13 @@ classes_test = data_test.classes
 
 train_loader = torch.utils.data.DataLoader(data_train, batch_size=BATCH_SIZE, shuffle=True, num_workers=0)
 val_loader = torch.utils.data.DataLoader(data_test, batch_size=BATCH_SIZE, shuffle=False, num_workers=0) 
+
+# Make data files and write headers
+timestamp_string = time.strftime("%Y%m%d-%H%M%S") 
+filename_train = './data_train/' + timestamp_string + '_train' + '_' + modelName + '_' + INPUT_SIZE + '.txt'
+filename_dev = './data_dev/' + timestamp_string + '_dev' + '_' + modelName + '_' + INPUT_SIZE + '.txt'
+createHeadertxt(modelName, INPUT_SIZE, filename_train)
+createHeadertxt(modelName, INPUT_SIZE, filename_dev)
 
 print('\n[INFO] Training Started')
 for epoch in range(1, NUM_EPOCHS + 1):
