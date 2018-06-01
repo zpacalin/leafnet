@@ -50,40 +50,31 @@ args = parser.parse_args()
 
 # Model selection function 
 def selectModel(MODEL_ID):
-    if (MODEL_ID == 1)
+    if MODEL_ID == 1:
         model = models.resnet18(pretrained=False)
         model.fc = nn.Linear(512, NUM_CLASSES)
         modelName = "resnet18"
-    else if (MODEL_ID == 2)
-        model = VGG('VGG16')
+    elif MODEL_ID == 2:
+        model = models.VGG('VGG16')
         modelName = "VGG16"
-    else if (MODEL_ID == 2)
-        model = resnet101()
+    elif MODEL_ID == 3:
+        model = models.resnet101()
         model.fc = nn.Linear(2048, NUM_CLASSES)
         modelName = "resnet101"
-    else
-        model = densenet121()
+    else:
+        model = models.densenet121()
         modelName = "densenet121"
     return model, modelName
 
 # Create data file with header
-def createHeadertxt(modelName, INPUT_SIZE, filename):
-    with open(filename, 'b') as b:
-        b.write('#Epoch  i\t\tTime\t\t  Data\t\t   Loss\t\t   Prec@1\t\t   Prec@5 \n')
+def createHeadertxt_train(modelName, INPUT_SIZE, filename):
+    with open(filename, 'a') as a:
+        a.write('#Epoch  i\t   Time\t\t     Data\t\t\t   Loss\t\t\t     Prec@1\t\t\t   Prec@5 \n')
 
-# Save epoch data to txt
-def saveEpochData2txt(filename):
-    with open(filename, 'b') as b:
-                    b.write('{0}\t'
-                            '{1}'
-                            '{batch_time.val:16.3f} \t'
-                            '{data_time.val:16.3f}\t'
-                            '{loss.val:16.4f}\t'
-                            '{top1.val:16.3f} \t'
-                            '{top5.val:16.3f}\n'.format(
-                                epoch, i, batch_time=batch_time,
-                                data_time=data_time, loss=losses, top1=top1, top5=top5))
-
+def createHeadertxt_dev(modelName, INPUT_SIZE, filename):
+    with open(filename, 'a') as a:
+        a.write('i\t\t    Time\t\t    Loss\t\t   Prec@1\t\t   Prec@5 \n')
+    
 # Training method which trains model for 1 epoch
 
 # saving all relevant accuraccy and loss parameters
@@ -142,7 +133,16 @@ def train(train_loader, model, criterion, optimizer, epoch):
                       epoch, i, len(train_loader), batch_time=batch_time,
                       data_time=data_time, loss=losses, top1=top1, top5=top5)) 
 
-            saveEpochData2txt(filename_train)
+            with open(filename_train, 'a') as a:
+                    a.write('{0}\t'
+                            '{1}'
+                            '{batch_time.val:16.3f} \t'
+                            '{data_time.val:16.3f}\t'
+                            '{loss.val:16.4f}\t'
+                            '{top1.val:16.3f} \t'
+                            '{top5.val:16.3f}\n'.format(
+                                epoch, i, batch_time=batch_time,
+                                data_time=data_time, loss=losses, top1=top1, top5=top5))
 
 # Validation method
 def validate(val_loader, model, criterion):
@@ -189,7 +189,14 @@ def validate(val_loader, model, criterion):
                       i, len(val_loader), batch_time=batch_time, loss=losses,
                       top1=top1, top5=top5))
             
-            saveEpochData2txt(filename_dev)
+            with open(filename_dev, 'a') as a:
+                    a.write('{0}\t'
+                            '{batch_time.val:16.3f} \t'
+                            '{loss.val:16.4f}\t'
+                            '{top1.val:16.3f} \t'
+                            '{top5.val:16.3f}\n'.format(
+                                i, batch_time=batch_time,
+                                loss=losses, top1=top1, top5=top5))
 
     print(' * Prec@1 {top1.avg:.3f} Prec@5 {top5.avg:.3f}'
           .format(top1=top1, top5=top5))
@@ -259,7 +266,6 @@ class MyImageFolder(datasets.ImageFolder): #return image path and loader
 print('\n[INFO] Creating Model')
 model, modelName = selectModel(MODEL_ID)
 
-# Define loss
 criterion = nn.CrossEntropyLoss()
 if USE_CUDA:
     model = torch.nn.DataParallel(model).cuda()
@@ -303,12 +309,12 @@ classes_test = data_test.classes
 train_loader = torch.utils.data.DataLoader(data_train, batch_size=BATCH_SIZE, shuffle=True, num_workers=0)
 val_loader = torch.utils.data.DataLoader(data_test, batch_size=BATCH_SIZE, shuffle=False, num_workers=0) 
 
-# Make data files and write headers
+print('\n[INFO] Preparing txt files to save epoch data')
 timestamp_string = time.strftime("%Y%m%d-%H%M%S") 
-filename_train = './data_train/' + timestamp_string + '_train' + '_' + modelName + '_' + INPUT_SIZE + '.txt'
-filename_dev = './data_dev/' + timestamp_string + '_dev' + '_' + modelName + '_' + INPUT_SIZE + '.txt'
-createHeadertxt(modelName, INPUT_SIZE, filename_train)
-createHeadertxt(modelName, INPUT_SIZE, filename_dev)
+filename_train = './data_train/' + timestamp_string + '_train' + '_' + modelName + '_' + str(INPUT_SIZE) + '.txt'
+filename_dev = './data_dev/' + timestamp_string + '_dev' + '_' + modelName + '_' + str(INPUT_SIZE) + '.txt'
+createHeadertxt_train(modelName, INPUT_SIZE, filename_train)
+createHeadertxt_dev(modelName, INPUT_SIZE, filename_dev)
 
 print('\n[INFO] Training Started')
 for epoch in range(1, NUM_EPOCHS + 1):
