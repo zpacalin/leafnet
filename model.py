@@ -27,53 +27,71 @@ from torchvision import datasets
 from torchvision import transforms
 
 # GLOBAL CONSTANTS
-
-MODEL_ID = 1 # CHANGE MODEL_ID VALUE TO SELECT THE MODEL to use!
-# INPUT_SIZE = 224
-INPUT_SIZE = 16 
-BATCH_SIZE = 128
+INPUT_SIZE = 16
 NUM_CLASSES = 185
-# NUM_EPOCHS = 50
-NUM_EPOCHS = 100 
-# LEARNING_RATE = 1e-4 #start from learning rate after 40 epochs
-LEARNING_RATE = 0.1
 
 USE_CUDA = torch.cuda.is_available()
 best_prec1 = 0
 classes = []
 
+#TODO 
+#   1) if you stop half way trough an epoc, save last average values
+#   2) make predicted_labels include the same timestamp as the data and save them in the same folder
+
 # ARGS Parser
+# when you don't want to pass a checkpoint: --resume ""
 parser = argparse.ArgumentParser(description='PyTorch LeafSnap Training')
 parser.add_argument('--resume', required = True, type=str, metavar='PATH',
-                    help='path to latest checkpoint (default: none)')
+                    help='path to latest checkpoint (type '' for none)')
+parser.add_argument('--modelid', required = True, type=int, metavar='MODEL_ID',
+                    help='1(resnet18), 2(VGG16), 3(resnet101), 4(densenet121)')
 args = parser.parse_args()
+MODEL_ID = args.modelid 
 
 # Model selection function 
 def selectModel(MODEL_ID):
     if MODEL_ID == 1:
+        BATCH_SIZE = 128
+        NUM_EPOCHS = 100
+        LEARNING_RATE = 1e-1 #start from learning rate after 40 epochs
+        ALPHA = 6
         model = models.resnet18(pretrained=False)
         model.fc = nn.Linear(512, NUM_CLASSES)
-        modelName = "resnet18"
+        modelName = "resnet18_decay"
     elif MODEL_ID == 2:
+        # BATCH_SIZE = 128
+        # NUM_EPOCHS = 250
+        # LEARNING_RATE = 1e-5 #start from learning rate after 40 epochs
+        # ALPHA = 6
         model = models.VGG('VGG16')
+        # model.fc = nn.Linear(512, NUM_CLASSES)
         modelName = "VGG16"
     elif MODEL_ID == 3:
+        # BATCH_SIZE = 128
+        # NUM_EPOCHS = 250
+        # LEARNING_RATE = 1e-5 #start from learning rate after 40 epochs
+        # ALPHA = 6
         model = models.resnet101()
         model.fc = nn.Linear(2048, NUM_CLASSES)
         modelName = "resnet101"
     else:
+        BATCH_SIZE = 8
+        # NUM_EPOCHS = 250
+        # LEARNING_RATE = 1e-5 #start from learning rate after 40 epochs
+        # ALPHA = 6
         model = models.densenet121()
+        # model.fc = nn.Linear(512, NUM_CLASSES)
         modelName = "densenet121"
-    return model, modelName
+    return model, modelName, BATCH_SIZE, NUM_EPOCHS, LEARNING_RATE, ALPHA
 
 # Create data file with header
 def createHeadertxt_train(modelName, INPUT_SIZE, filename):
     with open(filename, 'a') as a:
-        a.write('#Epoch  i\t   Time\t\t     Data\t\t\t   Loss\t\t\t     Prec@1\t\t\t   Prec@5 \n')
+        a.write('#Epoch\t\t   Time\t\t            Data\t\t   Loss\t\t\t\t   Prec@1\t   Prec@5 \n')
 
 def createHeadertxt_dev(modelName, INPUT_SIZE, filename):
     with open(filename, 'a') as a:
-        a.write('i\t\t    Time\t\t    Loss\t\t   Prec@1\t\t   Prec@5 \n')
+        a.write('#Epoch\t\t    Time\t\t    Loss\t\t   Prec@1\t\t   Prec@5 \n')
     
 # Training method which trains model for 1 epoch
 
@@ -123,7 +141,7 @@ def train(train_loader, model, criterion, optimizer, epoch):
         batch_time.update(time.time() - end)
         end = time.time()
 
-        if i % 1 == 0:
+        if i % 10 == 0:
             print('Epoch: [{0}][{1}/{2}]\t'
                   '\Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
                   'Data {data_time.val:.3f} ({data_time.avg:.3f})\t'
@@ -133,15 +151,15 @@ def train(train_loader, model, criterion, optimizer, epoch):
                       epoch, i, len(train_loader), batch_time=batch_time,
                       data_time=data_time, loss=losses, top1=top1, top5=top5)) 
 
+        if i == (len(train_loader)-1):
             with open(filename_train, 'a') as a:
                     a.write('{0}\t'
-                            '{1}'
-                            '{batch_time.val:16.3f} \t'
-                            '{data_time.val:16.3f}\t'
-                            '{loss.val:16.4f}\t'
-                            '{top1.val:16.3f} \t'
-                            '{top5.val:16.3f}\n'.format(
-                                epoch, i, batch_time=batch_time,
+                            '{batch_time.avg:16.3f}\t'
+                            '{data_time.avg:16.3f}\t'
+                            '{loss.avg:16.4f}\t'
+                            '{top1.avg:16.3f}\t'
+                            '{top5.avg:16.3f}\n'.format(
+                                epoch, batch_time=batch_time,
                                 data_time=data_time, loss=losses, top1=top1, top5=top5))
 
 # Validation method
@@ -181,21 +199,21 @@ def validate(val_loader, model, criterion):
         end = time.time()
 
         if i % 10 == 0:
-            print('Test: [{0}/{1}]\t'
+            print('Test: [{0}][{1}/{2}]\t'
                   'Time {batch_time.val:.3f} ({batch_time.avg:.3f})\t'
                   'Loss {loss.val:.4f} ({loss.avg:.4f})\t'
                   'Prec@1 {top1.val:.3f} ({top1.avg:.3f})\t'
                   'Prec@5 {top5.val:.3f} ({top5.avg:.3f})'.format(
-                      i, len(val_loader), batch_time=batch_time, loss=losses,
+                      epoch, i, len(val_loader), batch_time=batch_time, loss=losses,
                       top1=top1, top5=top5))
-            
+        if i == (len(val_loader)-1):    
             with open(filename_dev, 'a') as a:
                     a.write('{0}\t'
-                            '{batch_time.val:16.3f} \t'
-                            '{loss.val:16.4f}\t'
-                            '{top1.val:16.3f} \t'
-                            '{top5.val:16.3f}\n'.format(
-                                i, batch_time=batch_time,
+                            '{batch_time.avg:16.3f}\t'
+                            '{loss.avg:16.4f}\t'
+                            '{top1.avg:16.3f}\t'
+                            '{top5.avg:16.3f}\n'.format(
+                                epoch, batch_time=batch_time,
                                 loss=losses, top1=top1, top5=top5))
 
     print(' * Prec@1 {top1.avg:.3f} Prec@5 {top5.avg:.3f}'
@@ -213,8 +231,8 @@ def save_checkpoint(state, is_best, filename='checkpoint.pth.tar'):
 
 def adjust_learning_rate(optimizer, epoch):
     """Sets the learning rate to the initial LR decayed by 10 every 30 epochs"""
-    lr = LEARNING_RATE * (0.1 ** (epoch // 6))
-    if (lr <= 0.0001):
+    lr = LEARNING_RATE*0.1** (epoch // ALPHA)
+    if (lr <= 0.0001): # cap the learning rate to be larger than e-4
         lr = 0.0001
     print('\n[Learning Rate] {:0.6f}'.format(lr))
     for param_group in optimizer.param_groups:
@@ -264,7 +282,7 @@ class MyImageFolder(datasets.ImageFolder): #return image path and loader
 ###############################################################################
 
 print('\n[INFO] Creating Model')
-model, modelName = selectModel(MODEL_ID)
+model, modelName, BATCH_SIZE, NUM_EPOCHS, LEARNING_RATE, ALPHA = selectModel(MODEL_ID)
 
 criterion = nn.CrossEntropyLoss()
 if USE_CUDA:
@@ -311,8 +329,8 @@ val_loader = torch.utils.data.DataLoader(data_test, batch_size=BATCH_SIZE, shuff
 
 print('\n[INFO] Preparing txt files to save epoch data')
 timestamp_string = time.strftime("%Y%m%d-%H%M%S") 
-filename_train = './data_train/' + timestamp_string + '_train' + '_' + modelName + '_' + str(INPUT_SIZE) + '.txt'
-filename_dev = './data_dev/' + timestamp_string + '_dev' + '_' + modelName + '_' + str(INPUT_SIZE) + '.txt'
+filename_train = './dataAndPlots/' + timestamp_string + '_train' + '_' + modelName + '_' + str(INPUT_SIZE) + '.txt'
+filename_dev = './dataAndPlots/' + timestamp_string + '_dev' + '_' + modelName + '_' + str(INPUT_SIZE) + '.txt'
 createHeadertxt_train(modelName, INPUT_SIZE, filename_train)
 createHeadertxt_dev(modelName, INPUT_SIZE, filename_dev)
 
