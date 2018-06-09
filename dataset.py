@@ -19,6 +19,7 @@ from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 
 # GLOBAL CONSTANTS
+GRID_RANGE = [65, 20, 144, -50] #added this
 DATA_FILE = 'leafsnap-dataset-images.csv'
 NUM_CLASSES = 185
 bad_lab_species = set(['Abies concolor', 'Abies nordmanniana', 'Picea pungens', 'Picea orientalis',
@@ -57,8 +58,27 @@ print('\tTesting Samples  : {:5d}'.format(len(images_test['original'])))
 
 print('[INFO] Processing Images')
 
-
-def save_images(images, species, directory='train', csv_name='temp.csv', augment=False):
+def grid_loc(species, b_channel):
+  #assumes dictionary is built and in scope, and make_grid has been called
+  coords = dict[species]
+  latMax = int(coords[0])
+  latMin = int(coords[1])
+  lonMin = int(coords[2])
+  lonMax = int(coords[3])
+  #get rand cell
+  latR = random.randint(latMin, latMax)
+  lonR = random.randint(lonMin, lonMax)
+  #choose cell
+  lat_step = (GRID_RANGE[0] - GRID_RANGE[1])/b_channel.shape[0] #assume square img
+  lon_step = (GRID_RANGE[2] - GRID_RANGE[3])/b_channel.shape[0]
+  c = latR/lat_step
+  r = lonR/lon_step
+  grid = np.zeros(b_channel.shape, dtype=b_channel.dtype)
+  grid[r][c] = 1
+  return grid
+  
+  
+def save_images(images, species, directory='train', csv_name='temp.csv', augment=False, add_geolocate = True):
     cropped_images = []
     image_species = []
     image_paths = []
@@ -83,6 +103,12 @@ def save_images(images, species, directory='train', csv_name='temp.csv', augment
             cropped_images.append(image)
             image_species.append(species[index])
             count += 1
+            
+            if add_geolocate: #need to remember later on in file that img new dim, and adjust layers 1
+              b_channel, g_channel, r_channel = cv2.split(image)
+              alpha_channel = grid_loc(species[index], b_channel) #b_channel just to ensure correct dim
+              image = cv2.merge((b_channel, g_channel, r_channel, alpha_channel)) #OVERWRITES original
+              
 
             if augment:
                 angle = 90
