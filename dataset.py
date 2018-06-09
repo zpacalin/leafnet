@@ -58,6 +58,8 @@ print('\tTesting Samples  : {:5d}'.format(len(images_test['original'])))
 
 print('[INFO] Processing Images')
 
+dict = buildDict() # from geo_dictionary file
+
 def grid_loc(species, b_channel):
   #assumes dictionary is built and in scope, and make_grid has been called
   coords = dict[species]
